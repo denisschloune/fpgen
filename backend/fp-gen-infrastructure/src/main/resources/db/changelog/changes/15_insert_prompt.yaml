@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-prompts-from-sql
+      author: ton_nom
+      changes:
+        - sqlFile:
+            path: db/sql/prompt_import.sql
+            encoding: UTF-8
+            relativeToChangelogFile: false

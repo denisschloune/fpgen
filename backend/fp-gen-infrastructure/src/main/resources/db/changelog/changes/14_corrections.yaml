@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: correct_dataset_name_length
+      author: dsc
+      changes:
+        - modifyDataType:
+            tableName: dataset
+            columnName: name
+            newDataType: varchar(255)
+
+  - changeSet:
+      id: add_genuine_interlocutor
+      author: dsc
+      changes:
+        - addColumn:
+            tableName: interlocutor
+            columns:
+              - column:
+                  name: number
+                  type: integer
+                  constraints:
+                    nullable: true
+
+  - changeSet:
+      id: add_administrator_boolean
+      author: admin
+      changes:
+        - addColumn:
+            tableName: author
+            columns:
+              - column:
+                  name: administrator
+                  type: boolean
+
+        - update:
+            tableName: author
+            columns:
+              - column:
+                  name: administrator
+                  value: 'true'
+            where: trigram = 'admin'
