@@ -24,7 +24,7 @@ services:
       - keycloak_network_fpgen
 
   keycloak:
-    image: bitnami/keycloak:26.1.4
+    image: bitnamilegacy/keycloak:26.1.4
     volumes:
       - ./keycloak-import:/opt/bitnami/keycloak/data/import
     environment:
